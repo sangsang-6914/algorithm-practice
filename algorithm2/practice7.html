@@ -1,0 +1,53 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>봉우리</title>d>
+</head>
+
+<body>
+  <script>
+    function solution(arr) {
+      const dx = [-1, 0, 1, 0]
+      const dy = [0, 1, 0, -1]
+      let answer = 0;
+
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length; j++) {
+          const curData = arr[i][j]
+          let result = true
+          for (let k = 0; k < 4; k++) {
+            const compareX = i + dx[k]
+            const compareY = j + dy[k]
+            if (compareX < 0 || compareY < 0) {
+              continue;
+            }
+            if (compareY >= arr.length || compareX >= arr.length) {
+              continue;
+            }
+            const compareData = arr[compareX][compareY]
+
+            if (curData <= compareData) {
+              result = false
+              break;
+            }
+          }
+          if (result) {
+            answer++;
+          }
+        }
+      }
+
+      return answer;
+    }
+
+    let arr = [[5, 3, 7, 2, 3],
+    [3, 7, 1, 6, 1],
+    [7, 2, 5, 3, 4],
+    [4, 3, 6, 4, 1],
+    [8, 7, 3, 5, 2]];
+    console.log(solution(arr));
+  </script>
+</body>
+
+</html>

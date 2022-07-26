@@ -1,6 +1,10 @@
 function solution (call) {
-  let lowerCall = call.toLowerCase()
-  console.log(lowerCall)
+  let answer = '';
+  let lowerCall = call.toLowerCase();
+  console.log(lowerCall);
+
+  
+  
 }
 
 console.log(solution("abkCAKadC"))
