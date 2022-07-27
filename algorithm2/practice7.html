@@ -11,28 +11,30 @@
       const dx = [-1, 0, 1, 0]
       const dy = [0, 1, 0, -1]
       let answer = 0;
+      let n = arr.length;
 
-      for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr.length; j++) {
-          const curData = arr[i][j]
-          let result = true
+      for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+          let curData = arr[i][j];
+          let flag = 1;
           for (let k = 0; k < 4; k++) {
-            const compareX = i + dx[k]
-            const compareY = j + dy[k]
+            const compareX = i + dx[k];
+            const compareY = j + dy[k];
             if (compareX < 0 || compareY < 0) {
               continue;
             }
-            if (compareY >= arr.length || compareX >= arr.length) {
+            if (compareX >= n || compareY >= n) {
               continue;
             }
-            const compareData = arr[compareX][compareY]
 
-            if (curData <= compareData) {
-              result = false
+            const compareData = arr[compareX][compareY];
+            if (curData < compareData) {
+              flag = 0;
               break;
             }
           }
-          if (result) {
+
+          if (flag === 1) {
             answer++;
           }
         }

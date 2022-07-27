@@ -1,0 +1,32 @@
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>유효한 팰린드롬</title>
+</head>
+
+<body>
+  <script>
+    function solution(str) {
+      const lowerStr = str.toLowerCase();
+      let answer = "YES";
+
+      for (let i = 0; i < Math.floor(str.length / 2); i++) {
+        let frontVal = lowerStr[i];
+        let backVal = lowerStr[str.length - 1 - i];
+
+        if (frontVal !== backVal) {
+          answer = "NO";
+          break;
+        }
+      }
+
+      return answer;
+    }
+
+    const str = 'found7, time: study; ;Yduts :emit ,7Dnuof'
+    console.log(solution(str))
+  </script>
+</body>
+
+</html>

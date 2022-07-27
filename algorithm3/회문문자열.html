@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(str) {
+            const convertStr = str.toLowerCase();
+            const strArr = convertStr.split('');
+            const reverseArr = strArr.reverse();
+            const reverseStr = reverseArr.join('');
+
+            if (convertStr === reverseStr) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+
+        function solution2(str) {
+            const lowerStr = str.toLowerCase();
+            let answer = "YES";
+
+            for (let i = 0; i < Math.floor(str.length / 2); i++) {
+                let frontValue = lowerStr[i];
+                let backValue = lowerStr[str.length - 1 - i];
+
+                if (frontValue !== backValue) {
+                    answer = "NO";
+                    break;
+                }
+            }
+
+            return answer;
+        }
+
+        let str = "우영우";
+        console.log(solution2(str));
+    </script>
+</body>
+
+</html>
