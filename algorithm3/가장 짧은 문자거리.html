@@ -1,0 +1,42 @@
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>가장 짧은 문자거리</title>
+</head>
+
+<body>
+  <script>
+    function solution(str) {
+      console.log(str)
+      const compareStr = str.split(" ")[0]
+      const word = str.split(" ")[1]
+      let wordPosition = []
+      let answer = []
+
+      // e의 index 다 찾아놓은 후 문자 하나씩 비교해서 최소값
+      for (let i = 0; i < compareStr.length; i++) {
+        if (compareStr[i] === word) {
+          wordPosition.push(i)
+        }
+      }
+
+      for (let i = 0; i < compareStr.length; i++) {
+        let minDistance = 100;
+        let distance = 0;
+        for (let j = 0; j < wordPosition.length; j++) {
+          distance = Math.abs(i - wordPosition[j]);
+          if (minDistance > distance) {
+            minDistance = distance;
+          }
+        }
+        answer.push(minDistance)
+      }
+      return answer;
+    }
+
+    console.log(solution("teachermode e"))
+  </script>
+</body>
+
+</html>

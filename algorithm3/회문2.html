@@ -1,0 +1,33 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>회문2</title>
+</head>
+
+<body>
+  <script>
+    function solution(str) {
+      const lowerStr = str.toLowerCase();
+      const n = str.length;
+      let answer = "YES";
+
+      for (let i = 0; i < Math.floor(n / 2); i++) {
+        let frontVal = lowerStr[i];
+        console.log(frontVal)
+        let backVal = lowerStr[n - 1 - i];
+        console.log(backVal);
+
+        if (frontVal !== backVal) {
+          answer = "NO";
+          break;
+        }
+      }
+      return answer;
+    }
+
+    console.log(solution("우영우영우"))
+  </script>
+</body>
+
+</html>
