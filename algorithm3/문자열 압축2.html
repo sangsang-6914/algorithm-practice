@@ -1,0 +1,32 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>문자열 압축</title>
+</head>
+
+<body>
+  <script>
+    function solution(str) {
+      let cnt = 1;
+      let answer = "";
+
+      for (let i = 0; i < str.length; i++) {
+        if (str[i] === str[i + 1]) {
+          cnt++;
+        } else {
+          answer += str[i];
+          if (cnt > 1) {
+            answer += cnt;
+          }
+          cnt = 1;
+        }
+      }
+      return answer;
+    }
+
+    console.log(solution('KKHSSSSSSE'))
+  </script>
+</body>
+
+</html>
