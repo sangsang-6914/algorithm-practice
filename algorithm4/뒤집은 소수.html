@@ -1,0 +1,56 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>뒤집은 소수</title>
+</head>
+
+<body>
+  <script>
+    function solution(arr) {
+      // let answer = []
+
+      // for (let x of arr) {
+      //   const reverseNum = Number(x.toString().split('').reverse().join(''));
+      //   if (reverseNum === 2) answer.push(reverseNum);
+
+      //   for (let i = 2; i < reverseNum; i++) {
+      //     if (reverseNum % i === 0) {
+      //       break;
+      //     }
+      //   }
+      //   answer.push(reverseNum);
+      // }
+
+      // return answer;
+
+      let answer = []
+      for (let x of arr) {
+        let res = 0;
+        while (x) {
+          let t = x % 10;
+          res = res * 10 + t;
+          x = parseInt(x / 10);
+        }
+        if (isPrime(res)) answer.push(res);
+      }
+
+      return answer;
+    }
+
+    function isPrime(num) {
+      if (num === 1) return false;
+      for (let i = 2; i < parseInt(num / 2); i++) {
+        if (num % i === 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    const arr = [32, 55, 62, 20, 250, 370, 200, 30, 100]
+    console.log(solution(arr))
+  </script>
+</body>
+
+</html>
