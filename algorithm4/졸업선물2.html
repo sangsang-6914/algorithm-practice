@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>graduate present</title>
+  </head>
+  <body>
+    <script>
+      function solution(budget, arr) {
+        let n = arr.length;
+        let answer = 0;
+
+        arr.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
+
+        for (let i = 0; i < n; i++) {
+          // 할인쿠폰 사용 후 해당 상품만큼 제외된 가격
+          let money = budget - (arr[i][0] / 2 + arr[i][1]);
+          let cnt = 1;
+          for (let j = 0; j < n; j++) {
+            let price = arr[j][0] + arr[j][1];
+            if (i !== j && money < price) break;
+            if (i !== j && money >= price) {
+              money -= price;
+              cnt++;
+            }
+          }
+
+          answer = Math.max(answer, cnt);
+        }
+
+        return answer;
+      }
+
+      const arr = [
+        [6, 6],
+        [2, 2],
+        [4, 3],
+        [4, 5],
+        [10, 3],
+      ];
+      console.log(solution(28, arr));
+    </script>
+  </body>
+</html>
