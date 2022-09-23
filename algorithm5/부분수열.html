@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>BS</title>
+    </head>
+    <body>
+        <script>
+            function solution (arr) {
+                const m = 6;
+                const n = arr.length;
+                let lt=sum=cnt=0;
+                for (let rt=0; rt < n; rt++) {
+                    sum += arr[rt];
+                    if (sum === m) cnt++;
+                    while (sum >= m) {
+                        sum -= arr[lt++];
+                        if (sum === m) cnt++;
+                    }
+                }
+
+                return cnt;
+            }
+
+            const a = [1,2,1,3,1,1,1,2]
+            console.log(solution(a))
+        </script>
+    </body>
+</html>
