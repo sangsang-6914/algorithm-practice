@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>max sales</title>
+    </head>
+    <body>
+        <script>
+            function solution(day, arr) {
+                const n = arr.length;
+                let sum = 0, max = 0;
+                
+                // for (let rt=0; rt<n; rt++) {
+                //     if (rt <= day-1) {
+                //         sum += arr[rt];
+                //         max = sum;
+                //     } else {
+                //         sum = sum + (arr[rt] - arr[lt++]);
+                //         max = Math.max(max, sum);
+                //     }
+                // }
+
+                for (let i=0; i<n; i++) {
+                    if (i < day) {
+                        sum += arr[i];
+                        max = sum;
+                    } else {
+                        sum = sum + (arr[i] - arr[i-3])
+                        max = Math.max(sum, max);
+                    }
+                }
+
+                return max;
+            }
+            console.log(solution(3, [12,15,11,20,25,10,20,19,13,15]))
+        </script>
+    </body>
+</html>
