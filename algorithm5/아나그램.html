@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Anagram</title>
+    </head>
+    <body>
+        <script>
+            function solution (s1, s2) {
+                const hm = new Map()
+                let answer = 'YES';
+                for (let x of s1) {
+                    if (hm.has(x)) hm.set(x, hm.get(x) + 1);
+                    else hm.set(x, 1)
+                }
+                
+                for (let x of s2) {
+                    if (!hm.has(x) || hm.get(x) === 0) return "NO"
+                    hm.set(x, hm.get(x) - 1);
+                }
+
+                return answer;
+            }
+
+            const s1 = 'AbaAeCe'
+            const s2 = 'baeeACA'
+            console.log(solution(s1 ,s2))
+        </script>
+    </body>
+</html>
