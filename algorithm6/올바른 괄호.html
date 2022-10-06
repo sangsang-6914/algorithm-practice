@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>옯바른 괄호</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        const stack = [];
+        let answer = '';
+        for (let x of s) {
+          if (x === '(') stack.push(x);
+          else {
+            if (stack.length === 0) return 'NO';
+            stack.pop();
+          }
+        }
+
+        if (stack.length === 0) answer = 'YES';
+        else answer = 'NO';
+
+        return answer;
+      }
+
+      const s = '(())()';
+      console.log(solution(s));
+    </script>
+  </body>
+</html>

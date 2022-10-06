@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>괄호문자제거</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = '';
+        const stack = [];
+
+        for (let x of s) {
+          if (x !== ')') stack.push(x);
+          else {
+            while (stack.pop() !== '(');
+          }
+        }
+        answer = stack.join('');
+        return answer;
+      }
+
+      const s = '(A(BC)D)EF(G(H)(IJ)K)LM(N)';
+      console.log(solution(s));
+    </script>
+  </body>
+</html>
